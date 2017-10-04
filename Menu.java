@@ -8,16 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Menu extends JFrame implements ActionListener{
 
-	public Menu(){
-		
-	JFrame f = new JFrame("Menu Demo");
-	f.setSize(500, 500);
-
-	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public Menu(JFrame frame){
 	
-
+	//create the menubar	
 	JMenuBar menubar = new JMenuBar();
+	
+	//create the menu
 	JMenu menu = new JMenu("MENU");
+	
+	//create the items onto the menu
 	JMenuItem about = new JMenuItem("ABOUT");
 	JMenuItem exit = new JMenuItem("EXIT");
 	JMenuItem help = new JMenuItem("HELP");
@@ -26,6 +25,7 @@ public class Menu extends JFrame implements ActionListener{
 	JMenuItem undo = new JMenuItem("UNDO");
 	JMenuItem undoall = new JMenuItem("UNDO ALL");
 	
+	//add the items onto the menubar
 	menubar.add(about);
 	menubar.add(exit);
 	menubar.add(help);
@@ -34,6 +34,7 @@ public class Menu extends JFrame implements ActionListener{
 	menubar.add(undo);
 	menubar.add(undoall);
 	
+	//add functionality to the menu items
 	about.addActionListener(this);
 	exit.addActionListener(this);
 	help.addActionListener(this);
@@ -42,9 +43,11 @@ public class Menu extends JFrame implements ActionListener{
 	undo.addActionListener(this);
 	undoall.addActionListener(this);
 	
-	f.setJMenuBar(menubar);
-	f.setVisible(true);
+	//create the actual menu
+	frame.setJMenuBar(menubar);
+	frame.setVisible(true);
 	}
+	
 	public void actionPerformed(ActionEvent ae) {
 	    String comStr = ae.getActionCommand();
 	    System.out.println(comStr + " Selected");

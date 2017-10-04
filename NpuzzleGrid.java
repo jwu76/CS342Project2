@@ -63,7 +63,7 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
   
   public NpuzzleGrid() {
     super("GridLayout Demo");
-    Menu menu1  = new Menu(); 
+    Menu menu1  = new Menu(this); 
     //menu1.add();
     // set up layouts
     grid1 = new GridLayout(4, 4);
@@ -103,6 +103,7 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
       container.add(buttons[count]);
     }
     
+    //setJMemu(menu1.);
     setSize(400, 400);
     setVisible(true);
     
@@ -116,7 +117,7 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
                                   "You pressed: " + temp.getActionCommand() + temp.getText());
     for(int i = 0; i < names.length; ++i)
     {
-    	
+      	
     }
   }
 
