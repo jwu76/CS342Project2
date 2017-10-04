@@ -1,8 +1,16 @@
+/*
+ * this java class attempts the following:
+ * 		-create the NPuzzleGrid
+ * 		-randomize the array
+ * 		-find out if the array is solvable
+ * 		-implements the action events
+ */
 
+
+//import libraries for code to work
 import java.util. *;
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class NpuzzleGrid extends JFrame implements ActionListener {
@@ -17,6 +25,7 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
   Solvability buttonNames[];
   private int name[]; 
    
+ //function to randomize the array  
   public static String[] RandomizeArray(String[] array) {
     Random rgen = new Random();  // Random number generator
     
@@ -29,6 +38,7 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
     return array;
   }
   
+  //turn the string of array into ints so that the array can perform the following function
   public int[] turnIntoInts(String[] array){
 	    name = new int[array.length - 1];
 	    for (int index = 0; index < array.length - 1; ++index) {
@@ -36,6 +46,8 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
 	    }
 	    return name;
 	  }
+  
+  //check for the complexity 
   public int HasSolution(int[] array) {
 	    for (int indexCurrent = 0; indexCurrent < array.length; ++indexCurrent) {
 	      for (int indexRest = indexCurrent + 1; indexRest < array.length; ++indexRest) {
@@ -51,7 +63,8 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
   
   public NpuzzleGrid() {
     super("GridLayout Demo");
-    
+    Menu menu1  = new Menu(); 
+    //menu1.add();
     // set up layouts
     grid1 = new GridLayout(4, 4);
     
@@ -60,24 +73,25 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
     container.setLayout(grid1);
     
     // create and add buttons
-    solveable = false;
-    RandomizeArray(names);
-    turnIntoInts(names);
-    HasSolution(name);
+    solveable = false;      //array not randomize so do not know if solvable
+    RandomizeArray(names);	//randomize array
+    turnIntoInts(names);   //turn into ints
+    HasSolution(name);		//check for complexity
 
+    //repeat the randomization function until a solvable puzzle is found
     while(solveable == false)
-    if(complexity % 2 == 0)
+    if(complexity % 2 == 0) //complexity is even
     {
     	System.out.println("The 15 puzzle is solvable.");
-    	solveable = true;
+    	solveable = true; //since complexity is even, the puzzle is solvable
     }
-    else if(complexity % 2 == 1)
+    else if(complexity % 2 == 1) //complexity is odd
     {
     	System.out.println("The 15 puzzle is not solvable.");
     	RandomizeArray(names);
         turnIntoInts(names);
         HasSolution(name);
-    	solveable = false;
+    	solveable = false; //since complexity is odd, the puzzle is not solvable so reloops
     }
     buttons = new MyJButton[names.length];
        
