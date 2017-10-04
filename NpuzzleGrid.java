@@ -111,14 +111,10 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
   
   //
   public void actionPerformed(ActionEvent event) {
-    container.validate();
     MyJButton temp = (MyJButton)event.getSource();	
     JOptionPane.showMessageDialog(this,
-                                  "You pressed: " + temp.getActionCommand() + temp.getText());
-    for(int i = 0; i < names.length; ++i)
-    {
-      	
-    }
+                                  "You pressed: " + temp.getText());
+    container.validate();
   }
 
 	public static void main(String[] args) {

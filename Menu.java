@@ -3,6 +3,7 @@
  * 
  */
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,16 +27,22 @@ public class Menu extends JFrame implements ActionListener{
 	JMenuItem undoall = new JMenuItem("UNDO ALL");
 	
 	//add the items onto the menubar
-	menubar.add(about);
-	menubar.add(exit);
-	menubar.add(help);
-	menubar.add(mix);
-	menubar.add(solve);
-	menubar.add(undo);
-	menubar.add(undoall);
-	
-	//add functionality to the menu items
+	menu.add(about);
+	menu.add(exit);
+	menu.add(help);
+	menu.add(mix);
+	menu.add(solve);
+	menu.add(undo);
+	menu.add(undoall);
+	menubar.add(menu);
 	about.addActionListener(this);
+	//add functionality to the menu items
+//	about.addActionListener(new ActionListener(){
+//		@Override
+//		public void actionPerformed(ActionEvent event) {
+//			action(event);
+//		}
+//	});
 	exit.addActionListener(this);
 	help.addActionListener(this);
 	mix.addActionListener(this);
@@ -46,10 +53,18 @@ public class Menu extends JFrame implements ActionListener{
 	//create the actual menu
 	frame.setJMenuBar(menubar);
 	frame.setVisible(true);
-	}
-	
-	public void actionPerformed(ActionEvent ae) {
-	    String comStr = ae.getActionCommand();
-	    System.out.println(comStr + " Selected");
+	}	
+
+	public void action(ActionEvent ae) {
+	    String comStr = (String) ae.getSource();
+	    JMenuItem item= (JMenuItem)ae.getSource();
+	    //System.out.println(item);
+	    JOptionPane.showMessageDialog(this, "This is the 2nd project for cs342");
 	  }
+
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
