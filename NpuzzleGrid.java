@@ -27,10 +27,10 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
    
  //function to randomize the array  
   public static String[] RandomizeArray(String[] array) {
-    Random rgen = new Random();  // Random number generator
+    Random numberGenerator = new Random();  // Random number generator
     
     for (int i = 0; i < array.length - 1; i++) {
-      int randomPosition = rgen.nextInt(array.length - 1);
+      int randomPosition = numberGenerator.nextInt(array.length - 1);
       String temp = array[i];
       array[i] = array[randomPosition];
       array[randomPosition] = temp;
@@ -59,8 +59,8 @@ public class NpuzzleGrid extends JFrame implements ActionListener {
 	    System.out.println("This puzzle has a complexity of: " + complexity);
 	    return complexity;
 	  }
-  // set up GUI
-  
+	
+  // set up GUI  
   public NpuzzleGrid() {
     super("GridLayout Demo");
     Menu menu1  = new Menu(this); 
